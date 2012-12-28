@@ -12,7 +12,7 @@ function social_google_post($email, $password, $post) {
 }
 
 function social_facebook_post($email, $password, $post) {
-    
+
 }
 
 ?>

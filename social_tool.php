@@ -12,9 +12,9 @@ function social_google_post($email, $password, $post) {
     GooglePlusTool::logout();
 }
 
-function social_facebook_post($post) {
+function social_facebook_post($post, $link=false) {
     $fb = new FacebookTool();
-    $fb->post($post, $post, $post, $post);
+    $fb->post($post, $link, $post, $post);
 }
 
 ?>

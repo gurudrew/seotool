@@ -18,6 +18,10 @@
                             $password = get_post_var('gpassword');
                             social_google_post($email, $password, $post);
                         }
+
+                        if($facebook) {
+                            social_facebook_post($post);
+                        }
                     }
                 ?>
                 <h1>Post to multiple social networks</h1>
@@ -46,16 +50,11 @@
                         <div>
                             <label for="twitter">Post to Facebook</label>
                             <input type="checkbox" name="facebook" value="1" checked="true">
-
-                            <label for="username">Facebook Username</label>
-                            <input type="text" name="username">
-
-                            <label for="password">Facebook Password</label>
-                            <input type="password" name="password">
                         </div>
 
-                        <label for="post">Post</label>
-                        <textarea name="post" cols="40" rows="9">Post Content</textarea>
+                        <label for="post">Post</label><br/>
+                        <textarea name="post" cols="40" rows="9">Post Content</textarea><br/><br/>
+
                         <input type="submit" value="Post">
                     </fieldset>
                 </form>

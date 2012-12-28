@@ -13,8 +13,7 @@ function social_google_post($email, $password, $post) {
 }
 
 function social_facebook_post($post) {
-    require_once('libraries/FacebookTool.php');
-    $facebook = new FacebookTool();
+    global $facebook;
     $facebook->post($post, $post, $post, $post);
 }
 

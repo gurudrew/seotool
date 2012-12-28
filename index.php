@@ -2,26 +2,6 @@
     error_reporting(E_ERROR);
     ini_set('display_errors', 'On');
     require_once("social_tool.php");
-
-    if(get_post_var('submit')) {
-        $twitter = get_post_var('twitter');
-        $google = get_post_var('google');
-        $facebook = get_post_var('facebook');
-
-        $post = get_post_var('post');
-
-        echo '<h2>Submitted successfully</h2>';
-
-        if($google) {
-            $email = get_post_var('gusername');
-            $password = get_post_var('gpassword');
-            social_google_post($email, $password, $post);
-        }
-
-        if($facebook) {
-            social_facebook_post($post);
-        }
-    }
 ?>
 <html>
     <head>
@@ -33,6 +13,32 @@
                 <h1>Post to multiple social networks</h1>
                 <form action="index.php" method="post">
                     <fieldset>
+                        <div id="status">
+                            <?php
+                            require_once('libraries/FacebookTool.php');
+                            $facebook = new FacebookTool();
+
+                            if(get_post_var('submit')) {
+                                $twitter = get_post_var('twitter');
+                                $google = get_post_var('google');
+                                $facebook = get_post_var('facebook');
+
+                                $post = get_post_var('post');
+
+                                echo '<h2>Submitted successfully</h2>';
+
+                                if($google) {
+                                    $email = get_post_var('gusername');
+                                    $password = get_post_var('gpassword');
+                                    social_google_post($email, $password, $post);
+                                }
+
+                                if($facebook) {
+                                    social_facebook_post($post);
+                                }
+                            }
+                            ?>
+                        </div>
                         <input type="hidden" name="submit" value="1">
                         <div>
                             <label for="twitter">Post to Twitter</label>

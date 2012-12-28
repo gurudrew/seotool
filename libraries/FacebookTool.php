@@ -19,15 +19,15 @@
                 header("Location: " . $login_url);
             }
         }
-        public function post($name, $link, $message, $description, $picture=false, $actions=false) {
+        public function post($name, $message, $description, $link=false, $picture=false, $actions=false) {
             $post = array(
                 'message' => $message,
                 'name' => $name,
-                'link' => $link,
                 'description' => $description,
             );
             if($picture) $post['picture'] = $picture;
             if($actions) $post['actions'] = json_encode($actions);
+            if($link) $post['link'] = $link;
             try {
                 return $this->handle->api('/' . $this->user . '/feed', 'post', $post);
             } catch(FacebookApiException $e) {

@@ -16,7 +16,6 @@
                         <div id="status">
                             <?php
                             require_once('libraries/FacebookTool.php');
-                            global $fb;
                             $fb = new FacebookTool();
 
                             if(get_post_var('submit')) {

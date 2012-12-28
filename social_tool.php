@@ -13,7 +13,7 @@ function social_google_post($email, $password, $post) {
 }
 
 function social_facebook_post($post) {
-    global $fb;
+    $fb = new FacebookTool();
     $fb->post($post, $post, $post, $post);
 }
 

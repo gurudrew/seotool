@@ -6,10 +6,11 @@
         <div id="container">
             <div id="content">
                 <h1>Post to multiple social networks</h1>
-                <form action="index.php?submit" method="post">
+                <form action="index.php" method="post">
                     <fieldset>
+                        <input type="hidden" name="submit" value="1">
                     <?php
-                        if(get_request_var('submit')) {
+                        if(get_post_var('submit')) {
                             $twitter = get_post_var('twitter');
                             $google = get_post_var('google');
                             $facebook = get_post_var('facebook');

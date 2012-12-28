@@ -16,7 +16,8 @@
                         <div id="status">
                             <?php
                             require_once('libraries/FacebookTool.php');
-                            $facebook = new FacebookTool();
+                            global $fb;
+                            $fb = new FacebookTool();
 
                             if(get_post_var('submit')) {
                                 $twitter = get_post_var('twitter');

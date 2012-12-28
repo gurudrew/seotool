@@ -13,8 +13,8 @@ function social_google_post($email, $password, $post) {
 }
 
 function social_facebook_post($post) {
-    global $facebook;
-    $facebook->post($post, $post, $post, $post);
+    global $fb;
+    $fb->post($post, $post, $post, $post);
 }
 
 ?>

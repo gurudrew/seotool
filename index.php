@@ -2,6 +2,26 @@
     error_reporting(E_ERROR);
     ini_set('display_errors', 'On');
     require_once("social_tool.php");
+
+    if(get_post_var('submit')) {
+        $twitter = get_post_var('twitter');
+        $google = get_post_var('google');
+        $facebook = get_post_var('facebook');
+
+        $post = get_post_var('post');
+
+        echo '<h2>Submitted successfully</h2>';
+
+        if($google) {
+            $email = get_post_var('gusername');
+            $password = get_post_var('gpassword');
+            social_google_post($email, $password, $post);
+        }
+
+        if($facebook) {
+            social_facebook_post($post);
+        }
+    }
 ?>
 <html>
     <head>
@@ -14,27 +34,6 @@
                 <form action="index.php" method="post">
                     <fieldset>
                         <input type="hidden" name="submit" value="1">
-                    <?php
-                        if(get_post_var('submit')) {
-                            $twitter = get_post_var('twitter');
-                            $google = get_post_var('google');
-                            $facebook = get_post_var('facebook');
-
-                            $post = get_post_var('post');
-
-                            echo '<h2>Submitted successfully</h2>';
-
-                            if($google) {
-                                $email = get_post_var('gusername');
-                                $password = get_post_var('gpassword');
-                                social_google_post($email, $password, $post);
-                            }
-
-                            if($facebook) {
-                                social_facebook_post($post);
-                            }
-                        }
-                    ?>
                         <div>
                             <label for="twitter">Post to Twitter</label>
                             <input type="checkbox" name="twitter" value="1" checked="true">

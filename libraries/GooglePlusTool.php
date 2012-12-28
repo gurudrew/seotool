@@ -49,7 +49,8 @@
                         $toreturn .= $input->getAttribute('name') . '=' . urlencode($input->getAttribute('value')) . '&';
                 }
             }
-            return array(self::tidy($toreturn), $doc->getElementById('gaia_loginform')->getAttribute('action'));
+            $result = array(self::tidy($toreturn), $doc->getElementById('gaia_loginform')->getAttribute('action'));
+            var_dump($result); exit();
         }
         
         // Post login postdata

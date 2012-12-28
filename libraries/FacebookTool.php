@@ -2,6 +2,7 @@
     require_once("facebook/facebook.php");
     class FacebookTool {
         private $config, $handle, $user, $redirect;
+        public $loggedIn = false;
         public function __construct($redirect=true) {
             $this->config = array(
                 'appId' => FB_APPID,
@@ -10,6 +11,7 @@
             $this->handle = new Facebook($this->config);
             $this->user = $this->handle->getUser();
             $this->token = $this->handle->getAccessToken();
+            if($this->user) $this->loggedIn = true;
         }
         public function post($name, $message, $description, $link=false, $picture=false, $actions=false) {
             if(!$this->user && $this->redirect) {

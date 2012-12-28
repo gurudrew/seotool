@@ -62,11 +62,12 @@
                             <label for="password">Google Plus Password</label>
                             <input type="password" name="gpassword">
                         </div>
+                        <?php if($fb->loggedIn()): ?>
                         <div>
                             <label for="twitter">Post to Facebook</label>
                             <input type="checkbox" name="facebook" value="1" checked="true">
                         </div>
-
+                        <?php endif; ?>
                         <label for="post">Post</label><br/>
                         <textarea name="post" cols="40" rows="9">Post Content</textarea><br/><br/>
 

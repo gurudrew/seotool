@@ -1,5 +1,5 @@
 <?php
-    error_reporting(2047);
+    error_reporting(E_ERROR);
     ini_set('display_errors', 'On');
     require_once("social_tool.php");
 ?>

@@ -18,6 +18,8 @@
                             require_once('libraries/FacebookTool.php');
                             $fb = new FacebookTool();
 
+                            echo $fb->loginLinks();
+
                             if(get_post_var('submit')) {
                                 $twitter = get_post_var('twitter');
                                 $google = get_post_var('google');

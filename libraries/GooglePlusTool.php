@@ -69,7 +69,6 @@
             $curl->setPostData($postdata[0]);
             $buf = $curl->execute();
             $curl->close();
-            var_dump($buf); exit();
 
             if(stristr($buf, 'username or password you entered is incorrect')) {
                 throw new Exception("Unable to validate with the given credentials");

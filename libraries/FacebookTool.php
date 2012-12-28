@@ -42,7 +42,7 @@
                 $result = $this->handle->api('/me', 'GET', $request);
                 $logout_url = $this->handle->getLogoutUrl(
                     array(
-                        'next' => 'http://localhost/php-social-tool/seotool/'
+                        'next' => 'http://localhost/php-social-tool/seotool/?t=' . str_replace('.','',microtime(true))
                     )
                 );
                 return 'You are currently logged in to Facebook as ' . $result['name'] . '. <a href="' . $logout_url . '">Click here to log out</a>.';

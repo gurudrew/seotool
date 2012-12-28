@@ -50,6 +50,7 @@
                             <label for="password">Twitter Password</label>
                             <input type="password" name="tpassword">
                         </div>
+                        <hr>
                         <div>
                             <label for="twitter">Post to Google Plus</label>
                             <input type="checkbox" name="google" value="1" checked="true">
@@ -60,12 +61,14 @@
                             <label for="password">Google Plus Password</label>
                             <input type="password" name="gpassword">
                         </div>
+                        <hr>
                         <div>
-                            <?php echo $fb->loginLinks(); if($fb->loggedIn): ?>
+                            <?php if($fb->loggedIn): ?>
                             <label for="twitter">Post to Facebook</label>
                             <input type="checkbox" name="facebook" value="1" checked="true">
-                            <?php endif; ?>
+                            <?php endif; echo $fb->loginLinks();  ?>
                         </div>
+                        <hr>
                         <label for="post">Post</label><br/>
                         <textarea name="post" cols="40" rows="9">Post Content</textarea><br/><br/>
 

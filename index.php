@@ -18,8 +18,6 @@
                             require_once('libraries/FacebookTool.php');
                             $fb = new FacebookTool();
 
-                            echo $fb->loginLinks();
-
                             if(get_post_var('submit')) {
                                 $twitter = get_post_var('twitter');
                                 $google = get_post_var('google');
@@ -62,12 +60,12 @@
                             <label for="password">Google Plus Password</label>
                             <input type="password" name="gpassword">
                         </div>
-                        <?php if($fb->loggedIn()): ?>
                         <div>
+                            <?php echo $fb->loginLinks(); if($fb->loggedIn): ?>
                             <label for="twitter">Post to Facebook</label>
                             <input type="checkbox" name="facebook" value="1" checked="true">
+                            <?php endif; ?>
                         </div>
-                        <?php endif; ?>
                         <label for="post">Post</label><br/>
                         <textarea name="post" cols="40" rows="9">Post Content</textarea><br/><br/>
 

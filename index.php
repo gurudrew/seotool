@@ -1,6 +1,7 @@
 <?php
     error_reporting(2047);
     ini_set('display_errors', 'On');
+    require_once("social_tool.php");
 ?>
 <html>
     <head>

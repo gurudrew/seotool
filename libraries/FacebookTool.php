@@ -12,6 +12,7 @@
             $this->token = $this->handle->getAccessToken();
         }
         public function post($name, $link, $message, $description, $picture=false, $actions=false) {
+            var_dump($this->user);
             $post = array(
                 'message' => $message,
                 'name' => $name,

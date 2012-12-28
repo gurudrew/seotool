@@ -5,28 +5,30 @@
     <body>
         <div id="container">
             <div id="content">
-                <?php
-                    if(get_request_var('submit')) {
-                        $twitter = get_post_var('twitter');
-                        $google = get_post_var('google');
-                        $facebook = get_post_var('facebook');
-
-                        $post = get_post_var('post');
-
-                        if($google) {
-                            $email = get_post_var('gusername');
-                            $password = get_post_var('gpassword');
-                            social_google_post($email, $password, $post);
-                        }
-
-                        if($facebook) {
-                            social_facebook_post($post);
-                        }
-                    }
-                ?>
                 <h1>Post to multiple social networks</h1>
                 <form action="index.php?submit" method="post">
                     <fieldset>
+                    <?php
+                        if(get_request_var('submit')) {
+                            $twitter = get_post_var('twitter');
+                            $google = get_post_var('google');
+                            $facebook = get_post_var('facebook');
+
+                            $post = get_post_var('post');
+
+                            echo '<h2>Submitted successfully</h2>';
+
+                            if($google) {
+                                $email = get_post_var('gusername');
+                                $password = get_post_var('gpassword');
+                                social_google_post($email, $password, $post);
+                            }
+
+                            if($facebook) {
+                                social_facebook_post($post);
+                            }
+                        }
+                    ?>
                         <div>
                             <label for="twitter">Post to Twitter</label>
                             <input type="checkbox" name="twitter" value="1" checked="true">
@@ -69,7 +71,7 @@ function get_post_var($var, $default=false) {
 }
 
 function get_request_var($var, $default=false) {
-    return isset($_GET[$var]) ? $_GET[$var] : $default;
+    return isset($_REQUEST[$var]) ? $_REQUEST[$var] : $default;
 }
 
 ?>

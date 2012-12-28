@@ -1,3 +1,7 @@
+<?php
+    error_reporting(2047);
+    ini_set('display_errors', 'On');
+?>
 <html>
     <head>
         <title>Drew's SEO Tool</title>
